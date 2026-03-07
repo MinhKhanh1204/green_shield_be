@@ -38,3 +38,6 @@ out/
 
 ### ENV ###
 .env
+
+### Windows reserved device name (ignore so "git add ." does not fail) ###
+nul
