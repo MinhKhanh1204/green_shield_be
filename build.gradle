@@ -37,6 +37,7 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
     implementation 'com.cloudinary:cloudinary-http5:2.3.0'
     implementation 'com.google.genai:google-genai:1.41.0'
+    implementation 'com.google.cloud:google-cloud-texttospeech:2.37.0'
     compileOnly 'org.projectlombok:lombok:1.18.32'
     annotationProcessor 'org.projectlombok:lombok:1.18.32'
 }
