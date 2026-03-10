@@ -37,6 +37,7 @@ google:
 app:
   ai:
     daily-image-limit: ${DAILY_AI_IMAGE_LIMIT:20}
+    daily-audio-limit: ${DAILY_AI_AUDIO_LIMIT:200}
 
 # Cloudinary - get from https://console.cloudinary.com
 cloudinary:
