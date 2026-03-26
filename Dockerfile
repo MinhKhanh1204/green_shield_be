@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1.7
 FROM eclipse-temurin:17-jdk AS build
 WORKDIR /app
 
@@ -10,7 +11,8 @@ RUN chmod +x /app/gradlew
 COPY src /app/src
 
 # Build Spring Boot jar
-RUN ./gradlew --no-daemon clean bootJar
+RUN --mount=type=cache,target=/root/.gradle \
+    ./gradlew --no-daemon --console=plain --stacktrace clean bootJar
 
 FROM eclipse-temurin:17-jre
 WORKDIR /app
