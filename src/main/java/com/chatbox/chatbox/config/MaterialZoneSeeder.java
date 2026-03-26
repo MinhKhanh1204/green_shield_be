@@ -9,12 +9,16 @@ import com.chatbox.chatbox.repository.CollectionPointRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.List;
 
 @Component
 public class MaterialZoneSeeder implements CommandLineRunner {
+
+    private static final Logger log = LoggerFactory.getLogger(MaterialZoneSeeder.class);
 
     @Autowired
     private MaterialZoneRepository zoneRepository;
@@ -189,6 +193,7 @@ public class MaterialZoneSeeder implements CommandLineRunner {
             .build();
         collectionPointRepository.save(point3);
 
-        System.out.println(">>> Material Zone seed data inserted successfully!");
+        // Chỉ log khi chạy seed lần đầu (root logging level đang ở ERROR nên sẽ không in nhiều)
+        log.info("Material Zone seed data inserted successfully!");
     }
 }

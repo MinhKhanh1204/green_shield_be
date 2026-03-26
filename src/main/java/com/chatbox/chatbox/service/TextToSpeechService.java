@@ -5,6 +5,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 import java.util.Base64;
@@ -13,18 +15,17 @@ import java.util.Map;
 @Service
 public class TextToSpeechService {
 
+    private static final Logger log = LoggerFactory.getLogger(TextToSpeechService.class);
+
     private final String apiKey;
     private final WebClient webClient;
 
     public TextToSpeechService(@Value("${google.tts.api-key:}") String apiKey) {
         this.apiKey = apiKey;
         if (this.apiKey != null && !this.apiKey.isBlank()) {
-            String masked = this.apiKey.length() > 8
-                    ? this.apiKey.substring(0, 4) + "..." + this.apiKey.substring(this.apiKey.length() - 4)
-                    : this.apiKey;
-            System.out.println("TTS using apiKey=" + masked + " (len=" + this.apiKey.length() + ")");
         } else {
-            System.out.println("TTS apiKey is blank/undefined");
+            // Chỉ log khi cấu hình thiếu để tránh lộ thông tin nhạy cảm và giảm nhiễu log
+            log.error("TTS api-key is blank/undefined (google.tts.api-key)");
         }
         this.webClient = WebClient.builder()
                 .baseUrl("https://texttospeech.googleapis.com")
@@ -61,7 +62,7 @@ public class TextToSpeechService {
                     .onStatus(
                             status -> !status.is2xxSuccessful(),
                             r -> r.bodyToMono(String.class).map(bodyStr -> {
-                                System.err.println("TTS HTTP " + r.statusCode() + ": " + bodyStr);
+                                log.error("TTS HTTP {}: {}", r.statusCode(), bodyStr);
                                 return new RuntimeException("TTS HTTP " + r.statusCode());
                             })
                     )
@@ -69,13 +70,13 @@ public class TextToSpeechService {
                     .block(Duration.ofSeconds(10));
 
             if (response == null || !response.containsKey("audioContent")) {
-                System.err.println("TTS: empty response or missing audioContent");
+                log.error("TTS: empty response or missing audioContent");
                 return new byte[0];
             }
             String base64 = String.valueOf(response.get("audioContent"));
             return Base64.getDecoder().decode(base64);
         } catch (Exception e) {
-            System.err.println("TTS error: " + e.getMessage());
+            log.error("TTS error: {}", e.getMessage());
             return new byte[0];
         }
     }
