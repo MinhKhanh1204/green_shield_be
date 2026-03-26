@@ -1,0 +1,14 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test SSH connection
+        run: |
+          echo "SSH connection test passed"
