@@ -25,9 +25,9 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: root
-          key: ${{ secrets.SSH_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /root/greenshield
-            echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+            echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.USERNAME }}" --password-stdin
             docker-compose pull
             docker-compose up -d --remove-orphans
