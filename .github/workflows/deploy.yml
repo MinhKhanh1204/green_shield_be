@@ -6,9 +6,30 @@ on:
       - release
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Test SSH connection
-        run: |
-          echo "SSH connection test passed"
+      - uses: actions/checkout@v4
+
+      - name: Build JAR
+        run: mvn clean package -DskipTests
+
+      - name: Login Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build image
+        run: docker build -t kienkieuhihi/greenshield_api:latest .
+
+      - name: Push image
+        run: docker push kienkieuhihi/greenshield_api:latest
+
+      - name: Deploy VPS
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: root
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /root/greenshield
+            docker-compose pull
+            docker-compose up -d

@@ -1,8 +1,6 @@
 services:
   api:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: yourdockerhub/greenshield_api:latest
     container_name: greenshield_api
     restart: unless-stopped
     depends_on:
@@ -11,7 +9,6 @@ services:
     env_file:
       - .env
     environment:
-      # Trong compose, DB host phải là service name `mysql` (không phải localhost)
       DB_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-greenshield_db}?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
       DB_USERNAME: ${DB_USERNAME:-root}
       DB_PASSWORD: ${DB_PASSWORD:-root}
