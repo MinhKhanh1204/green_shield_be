@@ -1,6 +1,6 @@
 services:
   api:
-    image: yourdockerhub/greenshield_api:latest
+    image: kienkieuhihi/greenshield_api:latest
     container_name: greenshield_api
     restart: unless-stopped
     depends_on:
