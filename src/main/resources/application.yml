@@ -25,15 +25,15 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
 
+  gemini:
+    api:
+      key: ${GEMINI_API_KEY:}
+
 logging:
   level:
     org.hibernate.SQL: OFF
     org.hibernate.type.descriptor.sql.BasicBinder: OFF
     org.hibernate.tool.hbm2ddl: WARN
-
-gemini:
-  api:
-    key: ${GEMINI_API_KEY:}
 
 google:
   tts:
