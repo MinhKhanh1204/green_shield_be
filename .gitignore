@@ -39,5 +39,13 @@ out/
 ### ENV ###
 .env
 
+### Accidental Node artifacts ###
+node_modules/
+package-lock.json
+yarn.lock
+
+### Local source product photography ###
+product_images/
+
 ### Windows reserved device name (ignore so "git add ." does not fail) ###
 # nul

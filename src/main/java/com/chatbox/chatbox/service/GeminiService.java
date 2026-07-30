@@ -13,19 +13,20 @@ import java.util.Map;
 public class GeminiService {
 
     private final WebClient webClient;
-    public GeminiService(@Value("${spring.gemini.api.key}") String apiKey) {
-        if (apiKey.isEmpty()) {
-            throw new IllegalStateException("GEMINI_KEY not set!");
-        }
+    private final boolean configured;
+
+    public GeminiService(@Value("${spring.gemini.api.key:}") String apiKey) {
+        this.configured = apiKey != null && !apiKey.isBlank();
         this.webClient = WebClient.builder()
                 .baseUrl("https://generativelanguage.googleapis.com/v1beta/openai")
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .defaultHeader(HttpHeaders.AUTHORIZATION, "Bearer " + apiKey)
+                .defaultHeader(HttpHeaders.AUTHORIZATION, "Bearer " + (apiKey != null ? apiKey : ""))
                 .build();
     }
 
     @SuppressWarnings("unchecked")
     public String generateContent(String message) {
+        ensureConfigured();
         Map<String, Object> payload = Map.of(
                 "model", "gemini-2.5-flash",
                 "messages", List.of(Map.of("role", "user", "content", message))
@@ -64,6 +65,7 @@ public class GeminiService {
     // ✅ NEW: Chat bằng hình ảnh
     @SuppressWarnings("unchecked")
     public String generateContentWithImage(String message, String imageBase64) {
+        ensureConfigured();
         Map<String, Object> payload = Map.of(
                 "model", "gemini-2.5-flash",
                 "messages", List.of(Map.of(
@@ -105,5 +107,11 @@ public class GeminiService {
 
         Object content = msgMap.get("content");
         return content instanceof String ? (String) content : "No message content";
+    }
+
+    private void ensureConfigured() {
+        if (!configured) {
+            throw new IllegalStateException("GEMINI_API_KEY is not configured");
+        }
     }
 }
