@@ -89,42 +89,42 @@ public class Product {
 
     @ElementCollection
     @CollectionTable(name = "product_benefits_vi", joinColumns = @JoinColumn(name = "product_id"))
-    @Column(name = "value", length = 500)
+    @Column(name = "item_value", length = 500)
     @OrderColumn(name = "sort_order")
     @Builder.Default
     private List<String> benefitsVi = new ArrayList<>();
 
     @ElementCollection
     @CollectionTable(name = "product_benefits_en", joinColumns = @JoinColumn(name = "product_id"))
-    @Column(name = "value", length = 500)
+    @Column(name = "item_value", length = 500)
     @OrderColumn(name = "sort_order")
     @Builder.Default
     private List<String> benefitsEn = new ArrayList<>();
 
     @ElementCollection
     @CollectionTable(name = "product_applications_vi", joinColumns = @JoinColumn(name = "product_id"))
-    @Column(name = "value", length = 500)
+    @Column(name = "item_value", length = 500)
     @OrderColumn(name = "sort_order")
     @Builder.Default
     private List<String> applicationsVi = new ArrayList<>();
 
     @ElementCollection
     @CollectionTable(name = "product_applications_en", joinColumns = @JoinColumn(name = "product_id"))
-    @Column(name = "value", length = 500)
+    @Column(name = "item_value", length = 500)
     @OrderColumn(name = "sort_order")
     @Builder.Default
     private List<String> applicationsEn = new ArrayList<>();
 
     @ElementCollection
     @CollectionTable(name = "product_specifications_vi", joinColumns = @JoinColumn(name = "product_id"))
-    @Column(name = "value", length = 500)
+    @Column(name = "item_value", length = 500)
     @OrderColumn(name = "sort_order")
     @Builder.Default
     private List<String> specificationsVi = new ArrayList<>();
 
     @ElementCollection
     @CollectionTable(name = "product_specifications_en", joinColumns = @JoinColumn(name = "product_id"))
-    @Column(name = "value", length = 500)
+    @Column(name = "item_value", length = 500)
     @OrderColumn(name = "sort_order")
     @Builder.Default
     private List<String> specificationsEn = new ArrayList<>();
