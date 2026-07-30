@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +34,26 @@ public class CloudinaryService {
         );
         Map<?, ?> result = cloudinary.uploader().upload(file.getBytes(), params);
         return (String) result.get("secure_url");
+    }
+
+    public Map<String, String> uploadProductImage(byte[] bytes, String fileName, String folder) throws IOException {
+        ensureConfigured();
+        Map<?, ?> result = cloudinary.uploader().upload(bytes, ObjectUtils.asMap(
+                "folder", folder,
+                "public_id", fileName,
+                "overwrite", false,
+                "resource_type", "image"
+        ));
+        Map<String, String> output = new HashMap<>();
+        output.put("secureUrl", String.valueOf(result.get("secure_url")));
+        output.put("publicId", String.valueOf(result.get("public_id")));
+        return Collections.unmodifiableMap(output);
+    }
+
+    public void deleteImage(String publicId) throws IOException {
+        if (publicId == null || publicId.isBlank()) return;
+        ensureConfigured();
+        cloudinary.uploader().destroy(publicId, ObjectUtils.emptyMap());
     }
 
     /**
