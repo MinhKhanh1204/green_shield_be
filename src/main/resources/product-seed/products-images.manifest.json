@@ -1,0 +1,312 @@
+{
+  "hop-dung-trai-cay": [
+    {
+      "source": "product_images/hop_trai_cay/ChatGPT Image 15_59_27 26 thg 7, 2026 (1).png",
+      "fileName": "hop-dung-trai-cay-01",
+      "displayResource": "product-seed/images/hop-dung-trai-cay/hop-dung-trai-cay-01.webp",
+      "thumbnailResource": "product-seed/images/hop-dung-trai-cay/hop-dung-trai-cay-01-thumb.webp",
+      "sortOrder": 0,
+      "mainImage": true,
+      "imageType": "HERO",
+      "altTextVi": "Hộp đựng trái cây từ sợi lục bình - ảnh 1",
+      "altTextEn": "Water hyacinth fiber fruit box - image 1",
+      "seed": true
+    },
+    {
+      "source": "product_images/hop_trai_cay/ChatGPT Image 15_59_27 26 thg 7, 2026 (2).png",
+      "fileName": "hop-dung-trai-cay-02",
+      "displayResource": "product-seed/images/hop-dung-trai-cay/hop-dung-trai-cay-02.webp",
+      "thumbnailResource": "product-seed/images/hop-dung-trai-cay/hop-dung-trai-cay-02-thumb.webp",
+      "sortOrder": 1,
+      "mainImage": false,
+      "imageType": "GALLERY",
+      "altTextVi": "Hộp đựng trái cây từ sợi lục bình - ảnh 2",
+      "altTextEn": "Water hyacinth fiber fruit box - image 2",
+      "seed": true
+    },
+    {
+      "source": "product_images/hop_trai_cay/ChatGPT Image 15_59_27 26 thg 7, 2026 (3).png",
+      "fileName": "hop-dung-trai-cay-03",
+      "displayResource": "product-seed/images/hop-dung-trai-cay/hop-dung-trai-cay-03.webp",
+      "thumbnailResource": "product-seed/images/hop-dung-trai-cay/hop-dung-trai-cay-03-thumb.webp",
+      "sortOrder": 2,
+      "mainImage": false,
+      "imageType": "DETAIL",
+      "altTextVi": "Hộp đựng trái cây từ sợi lục bình - ảnh 3",
+      "altTextEn": "Water hyacinth fiber fruit box - image 3",
+      "seed": true
+    },
+    {
+      "source": "product_images/hop_trai_cay/ChatGPT Image 15_59_27 26 thg 7, 2026 (4).png",
+      "fileName": "hop-dung-trai-cay-04",
+      "displayResource": "product-seed/images/hop-dung-trai-cay/hop-dung-trai-cay-04.webp",
+      "thumbnailResource": "product-seed/images/hop-dung-trai-cay/hop-dung-trai-cay-04-thumb.webp",
+      "sortOrder": 3,
+      "mainImage": false,
+      "imageType": "APPLICATION",
+      "altTextVi": "Hộp đựng trái cây từ sợi lục bình - ảnh 4",
+      "altTextEn": "Water hyacinth fiber fruit box - image 4",
+      "seed": true
+    },
+    {
+      "source": "product_images/hop_trai_cay/ChatGPT Image 15_59_27 26 thg 7, 2026 (5).png",
+      "fileName": "hop-dung-trai-cay-05",
+      "displayResource": "product-seed/images/hop-dung-trai-cay/hop-dung-trai-cay-05.webp",
+      "thumbnailResource": "product-seed/images/hop-dung-trai-cay/hop-dung-trai-cay-05-thumb.webp",
+      "sortOrder": 4,
+      "mainImage": false,
+      "imageType": "GALLERY",
+      "altTextVi": "Hộp đựng trái cây từ sợi lục bình - ảnh 5",
+      "altTextEn": "Water hyacinth fiber fruit box - image 5",
+      "seed": true
+    }
+  ],
+  "dia-la-sen": [
+    {
+      "source": "product_images/dia_la_sen/ChatGPT Image 16_00_31 26 thg 7, 2026 (1).png",
+      "fileName": "dia-la-sen-01",
+      "displayResource": "product-seed/images/dia-la-sen/dia-la-sen-01.webp",
+      "thumbnailResource": "product-seed/images/dia-la-sen/dia-la-sen-01-thumb.webp",
+      "sortOrder": 0,
+      "mainImage": true,
+      "imageType": "HERO",
+      "altTextVi": "Dĩa lá sen ép định hình - ảnh 1",
+      "altTextEn": "Molded lotus leaf plate - image 1",
+      "seed": true
+    },
+    {
+      "source": "product_images/dia_la_sen/ChatGPT Image 16_00_31 26 thg 7, 2026 (2).png",
+      "fileName": "dia-la-sen-02",
+      "displayResource": "product-seed/images/dia-la-sen/dia-la-sen-02.webp",
+      "thumbnailResource": "product-seed/images/dia-la-sen/dia-la-sen-02-thumb.webp",
+      "sortOrder": 1,
+      "mainImage": false,
+      "imageType": "GALLERY",
+      "altTextVi": "Dĩa lá sen ép định hình - ảnh 2",
+      "altTextEn": "Molded lotus leaf plate - image 2",
+      "seed": true
+    },
+    {
+      "source": "product_images/dia_la_sen/ChatGPT Image 16_00_31 26 thg 7, 2026 (3).png",
+      "fileName": "dia-la-sen-03",
+      "displayResource": "product-seed/images/dia-la-sen/dia-la-sen-03.webp",
+      "thumbnailResource": "product-seed/images/dia-la-sen/dia-la-sen-03-thumb.webp",
+      "sortOrder": 2,
+      "mainImage": false,
+      "imageType": "DETAIL",
+      "altTextVi": "Dĩa lá sen ép định hình - ảnh 3",
+      "altTextEn": "Molded lotus leaf plate - image 3",
+      "seed": true
+    },
+    {
+      "source": "product_images/dia_la_sen/ChatGPT Image 16_00_31 26 thg 7, 2026 (4).png",
+      "fileName": "dia-la-sen-04",
+      "displayResource": "product-seed/images/dia-la-sen/dia-la-sen-04.webp",
+      "thumbnailResource": "product-seed/images/dia-la-sen/dia-la-sen-04-thumb.webp",
+      "sortOrder": 3,
+      "mainImage": false,
+      "imageType": "APPLICATION",
+      "altTextVi": "Dĩa lá sen ép định hình - ảnh 4",
+      "altTextEn": "Molded lotus leaf plate - image 4",
+      "seed": true
+    },
+    {
+      "source": "product_images/dia_la_sen/ChatGPT Image 16_00_31 26 thg 7, 2026 (5).png",
+      "fileName": "dia-la-sen-05",
+      "displayResource": "product-seed/images/dia-la-sen/dia-la-sen-05.webp",
+      "thumbnailResource": "product-seed/images/dia-la-sen/dia-la-sen-05-thumb.webp",
+      "sortOrder": 4,
+      "mainImage": false,
+      "imageType": "GALLERY",
+      "altTextVi": "Dĩa lá sen ép định hình - ảnh 5",
+      "altTextEn": "Molded lotus leaf plate - image 5",
+      "seed": true
+    }
+  ],
+  "chen-la-luc-binh": [
+    {
+      "source": "product_images/chen_la_lb/ChatGPT Image 16_00_52 26 thg 7, 2026 (1).png",
+      "fileName": "chen-la-luc-binh-01",
+      "displayResource": "product-seed/images/chen-la-luc-binh/chen-la-luc-binh-01.webp",
+      "thumbnailResource": "product-seed/images/chen-la-luc-binh/chen-la-luc-binh-01-thumb.webp",
+      "sortOrder": 0,
+      "mainImage": true,
+      "imageType": "HERO",
+      "altTextVi": "Chén lá lục bình ép định hình - ảnh 1",
+      "altTextEn": "Molded water hyacinth leaf bowl - image 1",
+      "seed": true
+    },
+    {
+      "source": "product_images/chen_la_lb/ChatGPT Image 16_00_52 26 thg 7, 2026 (2).png",
+      "fileName": "chen-la-luc-binh-02",
+      "displayResource": "product-seed/images/chen-la-luc-binh/chen-la-luc-binh-02.webp",
+      "thumbnailResource": "product-seed/images/chen-la-luc-binh/chen-la-luc-binh-02-thumb.webp",
+      "sortOrder": 1,
+      "mainImage": false,
+      "imageType": "GALLERY",
+      "altTextVi": "Chén lá lục bình ép định hình - ảnh 2",
+      "altTextEn": "Molded water hyacinth leaf bowl - image 2",
+      "seed": true
+    },
+    {
+      "source": "product_images/chen_la_lb/ChatGPT Image 16_00_52 26 thg 7, 2026 (3).png",
+      "fileName": "chen-la-luc-binh-03",
+      "displayResource": "product-seed/images/chen-la-luc-binh/chen-la-luc-binh-03.webp",
+      "thumbnailResource": "product-seed/images/chen-la-luc-binh/chen-la-luc-binh-03-thumb.webp",
+      "sortOrder": 2,
+      "mainImage": false,
+      "imageType": "DETAIL",
+      "altTextVi": "Chén lá lục bình ép định hình - ảnh 3",
+      "altTextEn": "Molded water hyacinth leaf bowl - image 3",
+      "seed": true
+    },
+    {
+      "source": "product_images/chen_la_lb/ChatGPT Image 16_00_53 26 thg 7, 2026 (4).png",
+      "fileName": "chen-la-luc-binh-04",
+      "displayResource": "product-seed/images/chen-la-luc-binh/chen-la-luc-binh-04.webp",
+      "thumbnailResource": "product-seed/images/chen-la-luc-binh/chen-la-luc-binh-04-thumb.webp",
+      "sortOrder": 3,
+      "mainImage": false,
+      "imageType": "APPLICATION",
+      "altTextVi": "Chén lá lục bình ép định hình - ảnh 4",
+      "altTextEn": "Molded water hyacinth leaf bowl - image 4",
+      "seed": true
+    },
+    {
+      "source": "product_images/chen_la_lb/ChatGPT Image 16_00_53 26 thg 7, 2026 (5).png",
+      "fileName": "chen-la-luc-binh-05",
+      "displayResource": "product-seed/images/chen-la-luc-binh/chen-la-luc-binh-05.webp",
+      "thumbnailResource": "product-seed/images/chen-la-luc-binh/chen-la-luc-binh-05-thumb.webp",
+      "sortOrder": 4,
+      "mainImage": false,
+      "imageType": "GALLERY",
+      "altTextVi": "Chén lá lục bình ép định hình - ảnh 5",
+      "altTextEn": "Molded water hyacinth leaf bowl - image 5",
+      "seed": true
+    }
+  ],
+  "lot-ly-luc-binh": [
+    {
+      "source": "product_images/lot_ly/ChatGPT Image 16_00_10 26 thg 7, 2026 (1).png",
+      "fileName": "lot-ly-luc-binh-01",
+      "displayResource": "product-seed/images/lot-ly-luc-binh/lot-ly-luc-binh-01.webp",
+      "thumbnailResource": "product-seed/images/lot-ly-luc-binh/lot-ly-luc-binh-01-thumb.webp",
+      "sortOrder": 0,
+      "mainImage": true,
+      "imageType": "HERO",
+      "altTextVi": "Lót ly từ sợi lục bình - ảnh 1",
+      "altTextEn": "Water hyacinth fiber coaster - image 1",
+      "seed": true
+    },
+    {
+      "source": "product_images/lot_ly/ChatGPT Image 16_00_10 26 thg 7, 2026 (2).png",
+      "fileName": "lot-ly-luc-binh-02",
+      "displayResource": "product-seed/images/lot-ly-luc-binh/lot-ly-luc-binh-02.webp",
+      "thumbnailResource": "product-seed/images/lot-ly-luc-binh/lot-ly-luc-binh-02-thumb.webp",
+      "sortOrder": 1,
+      "mainImage": false,
+      "imageType": "GALLERY",
+      "altTextVi": "Lót ly từ sợi lục bình - ảnh 2",
+      "altTextEn": "Water hyacinth fiber coaster - image 2",
+      "seed": true
+    },
+    {
+      "source": "product_images/lot_ly/ChatGPT Image 16_00_10 26 thg 7, 2026 (3).png",
+      "fileName": "lot-ly-luc-binh-03",
+      "displayResource": "product-seed/images/lot-ly-luc-binh/lot-ly-luc-binh-03.webp",
+      "thumbnailResource": "product-seed/images/lot-ly-luc-binh/lot-ly-luc-binh-03-thumb.webp",
+      "sortOrder": 2,
+      "mainImage": false,
+      "imageType": "DETAIL",
+      "altTextVi": "Lót ly từ sợi lục bình - ảnh 3",
+      "altTextEn": "Water hyacinth fiber coaster - image 3",
+      "seed": true
+    },
+    {
+      "source": "product_images/lot_ly/ChatGPT Image 16_00_10 26 thg 7, 2026 (4).png",
+      "fileName": "lot-ly-luc-binh-04",
+      "displayResource": "product-seed/images/lot-ly-luc-binh/lot-ly-luc-binh-04.webp",
+      "thumbnailResource": "product-seed/images/lot-ly-luc-binh/lot-ly-luc-binh-04-thumb.webp",
+      "sortOrder": 3,
+      "mainImage": false,
+      "imageType": "APPLICATION",
+      "altTextVi": "Lót ly từ sợi lục bình - ảnh 4",
+      "altTextEn": "Water hyacinth fiber coaster - image 4",
+      "seed": true
+    },
+    {
+      "source": "product_images/lot_ly/ChatGPT Image 16_00_11 26 thg 7, 2026 (5).png",
+      "fileName": "lot-ly-luc-binh-05",
+      "displayResource": "product-seed/images/lot-ly-luc-binh/lot-ly-luc-binh-05.webp",
+      "thumbnailResource": "product-seed/images/lot-ly-luc-binh/lot-ly-luc-binh-05-thumb.webp",
+      "sortOrder": 4,
+      "mainImage": false,
+      "imageType": "GALLERY",
+      "altTextVi": "Lót ly từ sợi lục bình - ảnh 5",
+      "altTextEn": "Water hyacinth fiber coaster - image 5",
+      "seed": true
+    }
+  ],
+  "tui-dan-bao-ve-trai-cay": [
+    {
+      "source": "product_images/Tui_dung_trai_cay/ChatGPT Image 15_59_47 26 thg 7, 2026 (1).png",
+      "fileName": "tui-dan-bao-ve-trai-cay-01",
+      "displayResource": "product-seed/images/tui-dan-bao-ve-trai-cay/tui-dan-bao-ve-trai-cay-01.webp",
+      "thumbnailResource": "product-seed/images/tui-dan-bao-ve-trai-cay/tui-dan-bao-ve-trai-cay-01-thumb.webp",
+      "sortOrder": 0,
+      "mainImage": true,
+      "imageType": "HERO",
+      "altTextVi": "Túi đan bảo vệ trái cây - ảnh 1",
+      "altTextEn": "Woven fruit protection bag - image 1",
+      "seed": true
+    },
+    {
+      "source": "product_images/Tui_dung_trai_cay/ChatGPT Image 15_59_47 26 thg 7, 2026 (2).png",
+      "fileName": "tui-dan-bao-ve-trai-cay-02",
+      "displayResource": "product-seed/images/tui-dan-bao-ve-trai-cay/tui-dan-bao-ve-trai-cay-02.webp",
+      "thumbnailResource": "product-seed/images/tui-dan-bao-ve-trai-cay/tui-dan-bao-ve-trai-cay-02-thumb.webp",
+      "sortOrder": 1,
+      "mainImage": false,
+      "imageType": "GALLERY",
+      "altTextVi": "Túi đan bảo vệ trái cây - ảnh 2",
+      "altTextEn": "Woven fruit protection bag - image 2",
+      "seed": true
+    },
+    {
+      "source": "product_images/Tui_dung_trai_cay/ChatGPT Image 15_59_47 26 thg 7, 2026 (3).png",
+      "fileName": "tui-dan-bao-ve-trai-cay-03",
+      "displayResource": "product-seed/images/tui-dan-bao-ve-trai-cay/tui-dan-bao-ve-trai-cay-03.webp",
+      "thumbnailResource": "product-seed/images/tui-dan-bao-ve-trai-cay/tui-dan-bao-ve-trai-cay-03-thumb.webp",
+      "sortOrder": 2,
+      "mainImage": false,
+      "imageType": "DETAIL",
+      "altTextVi": "Túi đan bảo vệ trái cây - ảnh 3",
+      "altTextEn": "Woven fruit protection bag - image 3",
+      "seed": true
+    },
+    {
+      "source": "product_images/Tui_dung_trai_cay/ChatGPT Image 15_59_47 26 thg 7, 2026 (4).png",
+      "fileName": "tui-dan-bao-ve-trai-cay-04",
+      "displayResource": "product-seed/images/tui-dan-bao-ve-trai-cay/tui-dan-bao-ve-trai-cay-04.webp",
+      "thumbnailResource": "product-seed/images/tui-dan-bao-ve-trai-cay/tui-dan-bao-ve-trai-cay-04-thumb.webp",
+      "sortOrder": 3,
+      "mainImage": false,
+      "imageType": "APPLICATION",
+      "altTextVi": "Túi đan bảo vệ trái cây - ảnh 4",
+      "altTextEn": "Woven fruit protection bag - image 4",
+      "seed": true
+    },
+    {
+      "source": "product_images/Tui_dung_trai_cay/ChatGPT Image 15_59_47 26 thg 7, 2026 (5).png",
+      "fileName": "tui-dan-bao-ve-trai-cay-05",
+      "displayResource": "product-seed/images/tui-dan-bao-ve-trai-cay/tui-dan-bao-ve-trai-cay-05.webp",
+      "thumbnailResource": "product-seed/images/tui-dan-bao-ve-trai-cay/tui-dan-bao-ve-trai-cay-05-thumb.webp",
+      "sortOrder": 4,
+      "mainImage": false,
+      "imageType": "GALLERY",
+      "altTextVi": "Túi đan bảo vệ trái cây - ảnh 5",
+      "altTextEn": "Woven fruit protection bag - image 5",
+      "seed": true
+    }
+  ]
+}

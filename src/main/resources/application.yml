@@ -14,7 +14,7 @@ spring:
   servlet:
     multipart:
       max-file-size: -1
-      max-request-size: 20971520
+      max-request-size: 47185920
       enabled: true
 
   jpa:
@@ -38,6 +38,11 @@ app:
   ai:
     daily-image-limit: ${DAILY_AI_IMAGE_LIMIT:20}
     daily-audio-limit: ${DAILY_AI_AUDIO_LIMIT:200}
+  product:
+    seed-enabled: ${PRODUCT_SEED_ENABLED:false}
+    image-storage: ${PRODUCT_IMAGE_STORAGE:local}
+    upload-dir: ${PRODUCT_UPLOAD_DIR:uploads/products}
+    public-base-url: ${PRODUCT_PUBLIC_BASE_URL:/uploads/products}
 
 # Cloudinary - get from https://console.cloudinary.com
 cloudinary:
