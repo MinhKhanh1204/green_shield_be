@@ -71,6 +71,27 @@ public class LocalProductImageStorage implements ProductImageStorage {
     }
 
     @Override
+    public void ensurePrepared(
+            byte[] displayContent,
+            byte[] thumbnailContent,
+            String fileName,
+            String slug) throws IOException {
+        ProductImageFileValidator.ImageFormat displayFormat = ProductImageFileValidator.detect(displayContent);
+        ProductImageFileValidator.detect(thumbnailContent);
+        String safeSlug = sanitizeSegment(slug);
+        String safeBase = sanitizeBaseName(fileName);
+        Path directory = resolveDirectory(safeSlug);
+        Path displayPath = directory.resolve(safeBase + "." + displayFormat.extension());
+        Path thumbnailPath = directory.resolve(safeBase + "-thumb." + displayFormat.extension());
+
+        if (Files.isRegularFile(displayPath) && Files.isRegularFile(thumbnailPath)) return;
+
+        Files.createDirectories(directory);
+        if (!Files.isRegularFile(displayPath)) write(displayPath, displayContent);
+        if (!Files.isRegularFile(thumbnailPath)) write(thumbnailPath, thumbnailContent);
+    }
+
+    @Override
     public void delete(String storageKey, String cloudinaryPublicId) throws IOException {
         if (storageKey == null || storageKey.isBlank()) return;
         for (String relative : storageKey.split("\\|")) {

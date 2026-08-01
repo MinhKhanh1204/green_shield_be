@@ -11,5 +11,13 @@ public interface ProductImageStorage {
             String fileName,
             String slug) throws IOException;
 
+    default void ensurePrepared(
+            byte[] displayContent,
+            byte[] thumbnailContent,
+            String fileName,
+            String slug) throws IOException {
+        // Remote storage is assumed to remain durable. Local storage overrides this hook.
+    }
+
     void delete(String storageKey, String cloudinaryPublicId) throws IOException;
 }

@@ -9,6 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(properties = {
@@ -35,5 +38,22 @@ class ProductSeedRunnerTests {
 
         assertThat(productRepository.findAll()).hasSize(5)
                 .allSatisfy(product -> assertThat(product.getImages()).hasSize(5));
+    }
+
+    @Test
+    @Transactional
+    void restoresMissingLocalSeedFilesWithoutDuplicatingImageRecords() throws Exception {
+        Path display = Path.of("build/test-product-seed/dia-la-sen/dia-la-sen-01.webp");
+        Path thumbnail = Path.of("build/test-product-seed/dia-la-sen/dia-la-sen-01-thumb.webp");
+        Files.deleteIfExists(display);
+        Files.deleteIfExists(thumbnail);
+
+        productSeedRunner.run(new DefaultApplicationArguments());
+
+        assertThat(display).exists();
+        assertThat(thumbnail).exists();
+        assertThat(productRepository.findBySlug("dia-la-sen")).get()
+                .extracting(product -> product.getImages().size())
+                .isEqualTo(5);
     }
 }

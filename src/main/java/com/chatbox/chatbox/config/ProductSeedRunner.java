@@ -67,8 +67,32 @@ public class ProductSeedRunner implements ApplicationRunner {
                             .build());
                 }
                 productRepository.save(product);
+            } else {
+                restoreMissingSeedFiles(product, manifest.getOrDefault(product.getSlug(), List.of()));
             }
         }
+    }
+
+    private void restoreMissingSeedFiles(Product product, List<ImageSeed> imageSeeds) throws IOException {
+        for (ImageSeed imageSeed : imageSeeds) {
+            if (!imageSeed.seed() || !referencesSeedImage(product, imageSeed.fileName())) continue;
+            imageStorage.ensurePrepared(
+                    readResource(imageSeed.displayResource()),
+                    readResource(imageSeed.thumbnailResource()),
+                    imageSeed.fileName(),
+                    product.getSlug());
+        }
+    }
+
+    private static boolean referencesSeedImage(Product product, String fileName) {
+        return product.getImages().stream().anyMatch(image ->
+                containsFileName(image.getStorageKey(), fileName)
+                        || containsFileName(image.getImageUrl(), fileName)
+                        || containsFileName(image.getThumbnailUrl(), fileName));
+    }
+
+    private static boolean containsFileName(String value, String fileName) {
+        return value != null && value.contains("/" + fileName + ".");
     }
 
     private Map<String, List<ImageSeed>> readManifest() throws IOException {
