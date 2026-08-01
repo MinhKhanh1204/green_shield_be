@@ -37,7 +37,20 @@ out/
 .vscode/
 
 ### ENV ###
-.env
+.env*
+!.env.example
+
+### Accidental Node artifacts ###
+node_modules/
+package-lock.json
+yarn.lock
+
+### Local source product photography ###
+product_images/
+src/main/resources/product-seed/images/
+
+### Runtime product uploads ###
+uploads/
 
 ### Windows reserved device name (ignore so "git add ." does not fail) ###
 # nul
