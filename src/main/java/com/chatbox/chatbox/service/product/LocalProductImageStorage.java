@@ -52,46 +52,6 @@ public class LocalProductImageStorage implements ProductImageStorage {
     }
 
     @Override
-    public StoredProductImage storePrepared(
-            byte[] displayContent,
-            byte[] thumbnailContent,
-            String fileName,
-            String slug) throws IOException {
-        ProductImageFileValidator.ImageFormat displayFormat = ProductImageFileValidator.detect(displayContent);
-        ProductImageFileValidator.detect(thumbnailContent);
-        String safeSlug = sanitizeSegment(slug);
-        String safeBase = sanitizeBaseName(fileName);
-        String displayName = safeBase + "." + displayFormat.extension();
-        String thumbnailName = safeBase + "-thumb." + displayFormat.extension();
-        Path directory = resolveDirectory(safeSlug);
-        Files.createDirectories(directory);
-        write(directory.resolve(displayName), displayContent);
-        write(directory.resolve(thumbnailName), thumbnailContent);
-        return stored(safeSlug, displayName, thumbnailName);
-    }
-
-    @Override
-    public void ensurePrepared(
-            byte[] displayContent,
-            byte[] thumbnailContent,
-            String fileName,
-            String slug) throws IOException {
-        ProductImageFileValidator.ImageFormat displayFormat = ProductImageFileValidator.detect(displayContent);
-        ProductImageFileValidator.detect(thumbnailContent);
-        String safeSlug = sanitizeSegment(slug);
-        String safeBase = sanitizeBaseName(fileName);
-        Path directory = resolveDirectory(safeSlug);
-        Path displayPath = directory.resolve(safeBase + "." + displayFormat.extension());
-        Path thumbnailPath = directory.resolve(safeBase + "-thumb." + displayFormat.extension());
-
-        if (Files.isRegularFile(displayPath) && Files.isRegularFile(thumbnailPath)) return;
-
-        Files.createDirectories(directory);
-        if (!Files.isRegularFile(displayPath)) write(displayPath, displayContent);
-        if (!Files.isRegularFile(thumbnailPath)) write(thumbnailPath, thumbnailContent);
-    }
-
-    @Override
     public void delete(String storageKey, String cloudinaryPublicId) throws IOException {
         if (storageKey == null || storageKey.isBlank()) return;
         for (String relative : storageKey.split("\\|")) {
@@ -159,9 +119,4 @@ public class LocalProductImageStorage implements ProductImageStorage {
         return value;
     }
 
-    private static String sanitizeBaseName(String value) {
-        String base = value == null ? "product-image" : value.replaceFirst("\\.[^.]+$", "");
-        base = base.toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9-]+", "-").replaceAll("^-+|-+$", "");
-        return base.isBlank() ? "product-image" : base;
-    }
 }

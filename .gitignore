@@ -47,6 +47,7 @@ yarn.lock
 
 ### Local source product photography ###
 product_images/
+src/main/resources/product-seed/images/
 
 ### Runtime product uploads ###
 uploads/

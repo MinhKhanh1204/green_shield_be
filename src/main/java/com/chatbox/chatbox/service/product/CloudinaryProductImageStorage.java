@@ -25,16 +25,6 @@ public class CloudinaryProductImageStorage implements ProductImageStorage {
     }
 
     @Override
-    public StoredProductImage storePrepared(
-            byte[] displayContent,
-            byte[] thumbnailContent,
-            String fileName,
-            String slug) throws IOException {
-        ProductImageFileValidator.detect(displayContent);
-        return upload(displayContent, sanitizeBaseName(fileName), slug);
-    }
-
-    @Override
     public void delete(String storageKey, String cloudinaryPublicId) throws IOException {
         cloudinaryService.deleteImage(cloudinaryPublicId != null ? cloudinaryPublicId : storageKey);
     }
@@ -56,9 +46,4 @@ public class CloudinaryProductImageStorage implements ProductImageStorage {
         return url.replace("/upload/", "/upload/" + transformation + "/");
     }
 
-    private static String sanitizeBaseName(String value) {
-        String base = value == null ? "product-image" : value.replaceFirst("\\.[^.]+$", "");
-        base = base.toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9-]+", "-").replaceAll("^-+|-+$", "");
-        return base.isBlank() ? "product-image" : base;
-    }
 }

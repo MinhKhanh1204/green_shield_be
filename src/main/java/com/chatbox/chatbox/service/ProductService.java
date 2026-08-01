@@ -232,45 +232,6 @@ public class ProductService {
         return toImage(selected);
     }
 
-    @Transactional
-    public ProductImage addPreparedImage(
-            Product product,
-            byte[] display,
-            byte[] thumbnail,
-            String fileName,
-            String altTextVi,
-            String altTextEn,
-            ProductImageType imageType,
-            int sortOrder,
-            boolean mainImage) throws IOException {
-        StoredProductImage stored = imageStorage.storePrepared(display, thumbnail, fileName, product.getSlug());
-        if (mainImage) product.getImages().forEach(image -> image.setMainImage(false));
-        ProductImage image = ProductImage.builder()
-                .imageUrl(stored.imageUrl())
-                .thumbnailUrl(stored.thumbnailUrl())
-                .cloudinaryPublicId(stored.cloudinaryPublicId())
-                .storageKey(stored.storageKey())
-                .altTextVi(altTextVi)
-                .altTextEn(altTextEn)
-                .imageType(imageType)
-                .sortOrder(sortOrder)
-                .mainImage(mainImage)
-                .build();
-        product.addImage(image);
-        return image;
-    }
-
-    @Transactional
-    public Product saveSeedProduct(Product product) {
-        validateProduct(product);
-        return productRepository.save(product);
-    }
-
-    @Transactional(readOnly = true)
-    public Optional<Product> findBySlugForSeed(String slug) {
-        return productRepository.findBySlug(slug);
-    }
-
     private Product findProduct(String id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Product not found"));

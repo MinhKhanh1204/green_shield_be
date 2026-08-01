@@ -27,8 +27,10 @@ import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -117,6 +119,39 @@ class ProductCatalogIntegrationTests {
                         .content(objectMapper.writeValueAsString(missingCombo)))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.error").value("Combo quantity and combo price are required for combo products"));
+    }
+
+    @Test
+    @WithMockUser(username = "admin@example.com")
+    void adminCanCreateUpdateAndDeleteProduct() throws Exception {
+        String createResponse = mockMvc.perform(post("/api/v1/admin/products")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request("admin-product", ProductSaleMode.RETAIL))))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.slug").value("admin-product"))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        String productId = objectMapper.readTree(createResponse).get("id").asText();
+        Map<String, Object> updateRequest = request("admin-product-updated", ProductSaleMode.B2B);
+        updateRequest.put("nameVi", "San pham da cap nhat");
+        updateRequest.put("active", false);
+
+        mockMvc.perform(put("/api/v1/admin/products/{id}", productId)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(updateRequest)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.slug").value("admin-product-updated"))
+                .andExpect(jsonPath("$.nameVi").value("San pham da cap nhat"))
+                .andExpect(jsonPath("$.active").value(false));
+
+        mockMvc.perform(delete("/api/v1/admin/products/{id}", productId))
+                .andExpect(status().isNoContent());
+
+        mockMvc.perform(get("/api/v1/admin/products/{id}", productId))
+                .andExpect(status().isNotFound());
+        assertThat(productRepository.existsById(productId)).isFalse();
     }
 
     @Test
