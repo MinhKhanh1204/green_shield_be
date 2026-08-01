@@ -12,27 +12,34 @@ import java.util.Map;
 @Service
 public class GeminiService {
 
+    private static final String CHAT_COMPLETIONS_PATH = "/chat/completions";
+
     private final WebClient webClient;
-    public GeminiService(@Value("${spring.gemini.api.key}") String apiKey) {
-        if (apiKey.isEmpty()) {
-            throw new IllegalStateException("GEMINI_KEY not set!");
-        }
+    private final boolean configured;
+    private final String model;
+
+    public GeminiService(
+            @Value("${spring.gemini.api.key:}") String apiKey,
+            @Value("${spring.gemini.api.model:gemini-flash-latest}") String model) {
+        this.configured = apiKey != null && !apiKey.isBlank();
+        this.model = model != null && !model.isBlank() ? model.trim() : "gemini-flash-latest";
         this.webClient = WebClient.builder()
                 .baseUrl("https://generativelanguage.googleapis.com/v1beta/openai")
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .defaultHeader(HttpHeaders.AUTHORIZATION, "Bearer " + apiKey)
+                .defaultHeader(HttpHeaders.AUTHORIZATION, "Bearer " + (apiKey != null ? apiKey : ""))
                 .build();
     }
 
     @SuppressWarnings("unchecked")
     public String generateContent(String message) {
+        ensureConfigured();
         Map<String, Object> payload = Map.of(
-                "model", "gemini-2.5-flash",
+                "model", model,
                 "messages", List.of(Map.of("role", "user", "content", message))
         );
 
         Map<String, Object> response = webClient.post()
-                .uri("/chat/completions")
+                .uri(CHAT_COMPLETIONS_PATH)
                 .bodyValue(payload)
                 .retrieve()
                 .bodyToMono(Map.class)
@@ -64,13 +71,14 @@ public class GeminiService {
     // ✅ NEW: Chat bằng hình ảnh
     @SuppressWarnings("unchecked")
     public String generateContentWithImage(String message, String imageBase64) {
+        ensureConfigured();
         Map<String, Object> payload = Map.of(
-                "model", "gemini-2.5-flash",
+                "model", model,
                 "messages", List.of(Map.of(
                         "role", "user",
                         "content", List.of(
                                 Map.of("type", "text", "text", message),
-                                Map.of("type", "image", "image_url", Map.of(
+                                Map.of("type", "image_url", "image_url", Map.of(
                                         "url", "data:image/png;base64," + imageBase64
                                 ))
                         )
@@ -78,7 +86,7 @@ public class GeminiService {
         );
 
         Map<String, Object> response = webClient.post()
-                .uri("/chat/completions2")
+                .uri(CHAT_COMPLETIONS_PATH)
                 .bodyValue(payload)
                 .retrieve()
                 .bodyToMono(Map.class)
@@ -105,5 +113,11 @@ public class GeminiService {
 
         Object content = msgMap.get("content");
         return content instanceof String ? (String) content : "No message content";
+    }
+
+    private void ensureConfigured() {
+        if (!configured) {
+            throw new IllegalStateException("GEMINI_API_KEY is not configured");
+        }
     }
 }

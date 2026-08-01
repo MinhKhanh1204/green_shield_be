@@ -32,7 +32,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1/textures", "/api/v1/chat/**", "/api/v1/auth/**",
                                 "/api/v1/bag-templates/**", "/api/v1/orders", "/api/v1/orders/**",
-                                "/api/v1/ai/**", "/api/v1/audio/**").permitAll()
+                                "/api/v1/ai/**", "/api/v1/audio/**", "/api/v1/products/**").permitAll()
                         .requestMatchers("/api/v1/admin/**").authenticated()
                         .anyRequest().permitAll()
                 )
@@ -56,7 +56,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:3000", "http://localhost:5174", "http://localhost:5175", "http://localhost:5176", "http://localhost:5177", "https://greenshieldmekongvn.vercel.app"));
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("Authorization", "Cache-Control", "Content-Type", "X-Requested-With", "Origin", "Accept"));
         config.setAllowCredentials(true);
         config.setMaxAge(3600L);

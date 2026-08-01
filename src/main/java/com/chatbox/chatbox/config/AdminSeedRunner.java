@@ -4,11 +4,13 @@ import com.chatbox.chatbox.model.Admin;
 import com.chatbox.chatbox.repository.AdminRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.core.env.Environment;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
+@ConditionalOnProperty(name = "app.admin-seed.enabled", havingValue = "true", matchIfMissing = true)
 public class AdminSeedRunner implements ApplicationRunner {
 
     private static final String DEFAULT_EMAIL = "admin@gmail.com";
