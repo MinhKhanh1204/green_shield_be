@@ -29,5 +29,5 @@ jobs:
           script: |
             cd /root/greenshield/greenshield
             echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.USERNAME }}" --password-stdin
-            docker-compose pull
-            docker-compose up -d --remove-orphans
+            docker compose pull
+            docker compose up -d --remove-orphans
