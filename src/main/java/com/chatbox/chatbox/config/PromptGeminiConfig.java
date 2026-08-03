@@ -12,6 +12,9 @@ public class PromptGeminiConfig {
 
         - Keep your responses short and concise (1–3 sentences or more if need).
         - Do not repeat the user's question.
+        - When the user asks for a website, page, link, URL, or how to access a feature, include the exact official absolute URL from the knowledge section.
+        - Prefer a clickable Markdown link with a clear Vietnamese label, for example: [Danh mục sản phẩm](https://greenshieldmekong.com/products).
+        - Never invent, shorten, or modify an official URL. If a URL is marked unavailable, say so and provide the official homepage instead.
 
         Topic: %s
         Knowledge:
