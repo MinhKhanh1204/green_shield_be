@@ -31,7 +31,9 @@ spring:
   gemini:
     api:
       key: ${GEMINI_API_KEY:}
-      model: ${GEMINI_MODEL:gemini-flash-latest}
+      model: ${GEMINI_MODEL:gemini-3.5-flash-lite}
+      fallback-models: ${GEMINI_FALLBACK_MODELS:gemini-3.1-flash-lite,gemma-4-31b-it,gemma-4-26b-a4b-it,gemini-3.6-flash,gemini-3.5-flash,gemini-3-flash-preview}
+      image-models: ${GEMINI_IMAGE_MODELS:gemini-3.5-flash-lite,gemini-3.1-flash-lite,gemini-3.6-flash,gemini-3.5-flash,gemini-3-flash-preview}
 
 logging:
   level:
@@ -49,6 +51,15 @@ app:
   ai:
     daily-image-limit: ${DAILY_AI_IMAGE_LIMIT:20}
     daily-audio-limit: ${DAILY_AI_AUDIO_LIMIT:200}
+    chat:
+      max-knowledge-chars: ${GEMINI_MAX_KNOWLEDGE_CHARS:12000}
+      max-knowledge-chunks: ${GEMINI_MAX_KNOWLEDGE_CHUNKS:8}
+      max-knowledge-chunk-chars: ${GEMINI_MAX_KNOWLEDGE_CHUNK_CHARS:4500}
+      max-history-messages: ${GEMINI_MAX_HISTORY_MESSAGES:8}
+      max-history-chars: ${GEMINI_MAX_HISTORY_CHARS:4000}
+      max-output-tokens: ${GEMINI_MAX_OUTPUT_TOKENS:512}
+      temperature: ${GEMINI_TEMPERATURE:0.3}
+      retries-per-model: ${GEMINI_RETRIES_PER_MODEL:1}
   product:
     image-storage: ${PRODUCT_IMAGE_STORAGE:local}
     upload-dir: ${PRODUCT_UPLOAD_DIR:uploads/products}
